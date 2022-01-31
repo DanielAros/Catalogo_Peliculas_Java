@@ -2,14 +2,15 @@ package peliculas.datos;
 
 import java.util.List;
 import peliculas.domain.Pelicula;
+import peliculas.excepciones.*;
 
 public interface IAccesoDatos {
     
-    boolean existe(String nombreArchivo);
-    List<Pelicula> listar(String nombre);
-    void escribir(Pelicula pelicula, String nombreArchivo, boolean anexar);
-    String buscar(String nombreArchivo, String buscar);
-    void crear(String nombreArchivo);
-    void borrar(String nombreArchivo);
+    boolean existe(String nombreRecurso) throws AccesoDatosEx;
+    List<Pelicula> listar(String nombreRecurso) throws LecturaDatosEx;
+    void escribir(Pelicula pelicula, String nombreRecurso, boolean anexar) throws EscrituraDatosEx;
+    String buscar(String nombreRecurso, String buscar) throws LecturaDatosEx;
+    void crear(String nombreRecurso) throws AccesoDatosEx;
+    void borrar(String nombreRecurso) throws AccesoDatosEx;
     
 }
